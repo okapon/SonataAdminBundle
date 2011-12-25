@@ -7,6 +7,9 @@ follow the instruction in the `BlockBundle documentation <http://sonata-project.
 
 If you want to customize the dashboard, add the following code to your
 application's config file:
+ダッシュボードはメインのランディングページです。デフォルトのダッシュボードは異なるAdminエリアが
+リストアップされます。
+もしダッシュボードをカスタマイズしたいなら、以下のコードをアプリケーション設定ファイルに追加してくだいさい。
 
 .. code-block:: yaml
 

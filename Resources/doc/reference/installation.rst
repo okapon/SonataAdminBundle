@@ -86,6 +86,8 @@ in there) and AppKernel.php files:
 
 Now, install the assets from the bundles::
 
+バンドルからアセットをインストールします。
+
     php app/console assets:install web
 
 Usually when installing new bundles a good practice is to also delete your cache::

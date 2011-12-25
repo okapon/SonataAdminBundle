@@ -35,15 +35,20 @@ Security handlers
 
 The security part is managed by a ``SecurityHandler``, the bundle comes with 3 
 handlers
+セキュリティ部分は ``SecurityHandler`` で管理されており、このbundleは3つのハンドラーで構成されています。
 
   - ``sonata.admin.security.handler.role`` : ROLES to handle permissions
   - ``sonata.admin.security.handler.acl`` : ACL and ROLES to handle permissions
   - ``sonata.admin.security.handler.noop`` : always returns true, can be used 
     with the Symfony2 firewall
-
+   - ``sonata.admin.security.handler.acl`` : ACL と パーミッションを管理するためのROLES (ACLを理解できてないので訳が間違ってたらごめんなさい)
+  - ``sonata.admin.security.handler.noop`` : いつもtureを返し、Symfony2のファイアウォールで使われます。 
 The default value is ``sonata.admin.security.handler.noop``, if you want to 
 change the default value you can set the ``security_handler`` to 
 ``sonata.admin.security.handler.acl`` or ``sonata.admin.security.handler.role``.
+
+デフォルト値は ``sonata.admin.security.handler.noop`` で、デフォルト値を変更したければ
+ ``security_handler`` に ``sonata.admin.security.handler.acl`` を設定できます
 
 To quickly secure an admin the role security can be used. It allows to specify 
 the actions a user can with the admin. The ACL security system is more advanced 
@@ -96,18 +101,23 @@ Using ACL:
 
 The following section explains how to set up ACL with the 
 ``FriendsOfSymfony/UserBundle``.
+以下のセクションで ``FriendsOfSymfony/UserBundle`` におけるACLを設定する方法を説明します。
 
 ACL and FriendsOfSymfony/UserBundle
 -----------------------------------
 
 If you want an easy way to handle users, please use :
+もしユーザーを管理する簡単な方法が欲しければ、以下を使ってください。
 
  - https://github.com/FriendsOfSymfony/FOSUserBundle : handle users and groups 
     stored in RDMS or MongoDB
  - https://github.com/sonata-project/SonataUserBundle : integrates the 
     ``FriendsOfSymfony/UserBundle`` with the ``AdminBundle``
+ - https://github.com/FriendsOfSymfony/FOSUserBundle : RDBMSやMongoDに保存されたユーザーやグループを管理する
+ - https://github.com/sonata-project/SonataUserBundle :  ``FriendsOfSymfony/UserBundle`` を ``AdminBundle`` に結合する
 
 The security integration is a work in progress and has some known issues :
+セキュリティー統合は未完成で、いくつかの解決方法が知られています。
  - ACL permissions are immutables
  - A listener must be implemented that creates the object Access Control List 
     with the required rules if objects are created outside the Admin

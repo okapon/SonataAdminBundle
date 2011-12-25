@@ -2,6 +2,7 @@ Templates
 =========
 
 By default, an Admin class uses a set of templates, it is possible to tweak the default values by editing the configuration
+デフォルトでは、Adminクラスはテンプレートセットを使っており、設定を編集することでデフォルト値を変更することができます。
 
 .. code-block:: yaml
 
@@ -24,6 +25,7 @@ By default, an Admin class uses a set of templates, it is possible to tweak the 
 
 
 Usage of each template :
+それぞれのテンプレートの用途
 
 * layout : base layout used by the dashboard and an admin class
 * ajax : default layout used when an ajax request is performed
@@ -35,7 +37,15 @@ Usage of each template :
 * preview : the template to use for previewing an edit / create action
 * short_object_description: used to represent the entity in one-to-one/many-to-one relations
 
+* layout : ダッシュボードとAdminクラスで使われる基本レイアウト
+* ajax : ajaxリクエストが行われた時に使われるデフォルトレイアウト
+* list : listアクションで使われるテンプレート
+* show : showアクションで使われるテンプレート
+* edit : editアクション、createアクションでアクションで使われるテンプレート
+* history : historyアクションと、auditアクションで使われるテンプレート
+
 The default values will be set only if the ``Admin::setTemplates`` is not called by the Container.
+ ``Admin::setTemplates`` がコンテナで呼ばれないときだけ、デフォルト値がセットされます。
 
 You can easily extend the provided templates in your own and customize only the blocks you need to change:
 
