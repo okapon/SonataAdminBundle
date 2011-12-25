@@ -5,6 +5,7 @@ Service Configuration
 ---------------------
 
 When you create a new Admin service you can configure its dependencies, by default services who are injected are:
+新しいAdminサービスを作るとき、その依存性注入を設定することができます。デフォルトで注入されているのは以下の通りです。
 
 ========================      =============================================
 Dependencies                  Service Id
@@ -25,10 +26,13 @@ label_translator_strategy     sonata.admin.label.strategy.form_component
 =========================     =============================================
 
 Note: %manager-type% is replace by the manager type (orm, odm...)
+Note: %manager-type% は(orm, odm...)といった管理タイプに置き換えられます。
 
 You have 2 ways of defining the dependencies inside a ``services.xml``.
+``services.xml`` に依存性を定義する方法は２つあります。
 
 * With a tag attribute, less verbose::
+* あまり詳細でないタグ属性を用いる
 
 .. code-block:: xml
 
@@ -47,6 +51,7 @@ You have 2 ways of defining the dependencies inside a ``services.xml``.
         </service>
 
 * With a method call, more verbose
+* より詳細なメソッドの呼び出しを用いる
 
 .. code-block:: xml
 
@@ -73,6 +78,7 @@ You have 2 ways of defining the dependencies inside a ``services.xml``.
 
 If you want to modify the service who are going to be injected, add the following code to your
 application's config file:
+もしサービスを注入するように変更したければ、以下のコードをあなたのアプリケーション設定ファイルに追加してください。
 
 .. code-block:: yaml
 

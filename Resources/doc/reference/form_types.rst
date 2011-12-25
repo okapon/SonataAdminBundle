@@ -11,19 +11,29 @@ Other form types
 ----------------
 
 The bundle comes with some handy form types which are available from outside the scope of the ``SonataAdminBundle``::
+そのバンドルは ``SonataAdminBundle`` のスコープの外から利用できるいくつかの便利なフォームタイプを備えています。
 
 sonata_type_immutable_array
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``Immutable Array`` allows to edit an array property by defining a type per key.
+ ``Immutable Array`` はキーごとに決められたタイプだけ配列のプロパティを編集することを許します。
 
 The type has a ``keys`` parameter which contains the definition for each key. A definition is an array with 3 options :
+そのタイプはそれぞれのキーに対する定義を含んだキーパラメーターを持っています。（訳が意味不明ですね。。）
 * the key name
 * the type : a type name or the a ``FormType`` instance
 * the related type parameters : please refer to the related form documentation.
 
+* the key name
+* the type : タイプ名 もしくは ``FormType`` のインスタンス
+* the related type parameters : please refer to the related form documentation.
+
 Let's say a ``Page`` have a options property with some fixed key-pair values, each value has a type different : integer,
 url, or string for instance.
+例えば数字やurlもしくは文字列といった、それぞれの値は異なったタイプを持っていますが、
+いくつかの固定化されたキーペア値のオプションプロパティを持ったページを言って（書いて？）みよう。
+（かなり日本語が怪しいです）
 
 .. code-block:: php
 
@@ -47,6 +57,7 @@ url, or string for instance.
     }
 
 Now, the property can be edited by setting a type for each type
+今、そのプロパティはそれぞれのタイプに応じてタイプが設定され編集されます。
 
 .. code-block:: php
 
@@ -63,16 +74,22 @@ sonata_type_boolean
 ^^^^^^^^^^^^^^^^^^^
 
 The ``boolean`` type is a specialized ``ChoiceType`` where the choices list is fixed to 'yes' or 'no'.
-
+ ``boolean`` タイプは選択リストがyesかnoに固定された ``ChoiceType`` に特化しています。
 
 sonata_type_translatable_choice
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The translatable type is a specialized ``ChoiceType`` where the choices values are translated with the Symfony
 Translator component.
+``translatable`` type は選択値がSymfony Translator component によって翻訳された
+ ``ChoiceType`` に特化しています。
+(翻訳というより、値を定義して選択リストに挿し込むという意味合いか？下のコード参照)
 
 The type has one extra parameter :
  * ``catalogue`` : the catalogue name to translate the value
+
+このタイプは１つの追加パラメーターを持っています。
+ * ``catalogue`` : 値を翻訳するためのカタログ名
 
 
 .. code-block:: php

@@ -2,12 +2,18 @@ Security
 ========
 
 The security part is managed by a ``SecurityHandler``, the bundle comes with 2 handlers
+セキュリティ部分は ``SecurityHandler`` で管理されており、このbundleは２つのハンドラーで構成されています。
 
   - ``sonata.admin.security.handler.acl`` : ACL and ROLES to handle permissions
   - ``sonata.admin.security.handler.noop`` : always return true, can be used with the Symfony2 firewall
 
+  - ``sonata.admin.security.handler.acl`` : ACL と パーミッションを管理するためのROLES (ACLを理解できてないので訳が間違ってたらごめんなさい)
+  - ``sonata.admin.security.handler.noop`` : いつもtureを返し、Symfony2のファイアウォールで使われます。
+
 The default value is ``sonata.admin.security.handler.noop``, if you want to change the default value
 you can set the ``security_handler`` to ``sonata.admin.security.handler.acl``.
+デフォルト値は ``sonata.admin.security.handler.noop`` で、デフォルト値を変更したければ
+ ``security_handler`` に ``sonata.admin.security.handler.acl`` を設定できます。
 
 .. code-block:: yaml
 
@@ -16,20 +22,26 @@ you can set the ``security_handler`` to ``sonata.admin.security.handler.acl``.
         security_handler: sonata.admin.security.handler.acl
 
 The following section explains how to set up ACL with the ``FriendsOfSymfony/UserBundle``.
+以下のセクションで ``FriendsOfSymfony/UserBundle`` におけるACLを設定する方法を説明します。
 
 ACL and FriendsOfSymfony/UserBundle
 -----------------------------------
 
 If you want an easy way to handle users, please use :
+もしユーザーを管理する簡単な方法が欲しければ、以下を使ってください。
 
  - https://github.com/FriendsOfSymfony/FOSUserBundle : handle users and group stored from RDMS or MongoDB
  - https://github.com/sonata-project/SonataUserBundle : integrate the ``FriendsOfSymfony/UserBundle`` with
    the ``AdminBundle``
+ - https://github.com/FriendsOfSymfony/FOSUserBundle : RDBMSやMongoDに保存されたユーザーやグループを管理する
+ - https://github.com/sonata-project/SonataUserBundle :  ``FriendsOfSymfony/UserBundle`` を ``AdminBundle`` に結合する
 
 The security integration is a work in progress and have some knows issues :
+セキュリティー統合は未完成で、いくつかの解決方法が知られています。
  - ACL permissions are immutables
  - Only one PermissionMap can be defined
-
+ - ACL のパーミッションは不変である
+ - たった１つの PermissionMap だけ定義できる
 
 Configuration
 ~~~~~~~~~~~~~

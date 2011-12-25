@@ -6,9 +6,17 @@ The current validation implementation built in the Symfony2 framework is very po
 as it allows to declare validation on : class, field and getter. However these declaration
 can take a while to code for complexe rules. As a rules must be a set of a ``Constraint``
 and ``Validator`` instance.
+インラインバリデーションはモデルの検証を委譲する専門のサービスです。symfony2フレームワークに
+組み込まれている現在のバリデーション実装はとてもパワフルで、クラス、フィールド、ゲッターに
+バリデーションを宣言することができます。しかしながら、これらの宣言は複雑なルールのために
+コーディングを複雑にしてしまうことがあります。ルールには ``制約`` が課されるべきであり、
+ ``バリデーター`` インスタンスであるべきでです。
 
 The inline validation try to provide a nice solution by introducting a ``ErrorElement``
 object. The object can be use to check assertion against a model :
+インラインバリデーションは ``ErrorElement`` オブジェクトを導入することにより素晴らしい解決法を
+提供することを試んでます。
+モデルに対してアサーションがあるかチェックすることで、このオブジェクトは使われます。
 
 .. code-block:: php
 
@@ -42,11 +50,14 @@ object. The object can be use to check assertion against a model :
 
     This solution rely on the validator component so validation defined through
     the validator component will be used.
+    この解決方法はバリデーターコンポーネントに依存しているので、バリデーターコンポーネントを
+    使うことによりバリデーションは定義されます。
 
 Using this validator
 --------------------
 
 Just add the ``InlineConstraint`` class constraint, like this:
+以下のように、 ``InlineConstraint`` 制約クラスを追加するだけです。
 
 .. code-block:: xml
 
@@ -58,15 +69,22 @@ Just add the ``InlineConstraint`` class constraint, like this:
     </class>
 
 There are two important options:
+２つの重要なオプションがあります。
 
   - ``service``: the service where the validation method is defined
   - ``method``: the service's method to call
 
+  - ``service``: バリデーションメソッドが定義されているサービス
+  - ``method``: 呼ばれるためのサービスメソッド
+
 The method must accept two arguments:
+メソッドは２つの引数を受け取らねばなりません。
 
  - ``ErrorElement``: the instance where assertion can be check
  - ``value``: the object instance
 
+ - ``ErrorElement``: アサーションを確認するインスタンス
+ - ``value``: オブジェクトインスタンス
 
 Sample with the ``PageBundle``
 ------------------------------
