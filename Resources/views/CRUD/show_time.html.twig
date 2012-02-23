@@ -9,5 +9,7 @@ file that was distributed with this source code.
 
 #}
 
-<th>{% block name %}{{ admin.trans(field_description.label) }}{% endblock %}</th>
-<td>{% block field %}{{ value }}{% endblock %}</td>
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% block field %}{{ value|date('H:i:s') }}{% endblock %}
+

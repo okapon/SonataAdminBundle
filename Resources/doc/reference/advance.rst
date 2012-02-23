@@ -4,7 +4,7 @@ Advance
 Service Configuration
 ---------------------
 
-When you create a new Admin service you can configure its dependencies, by default services who are injected are:
+When you create a new Admin service you can configure its dependencies, by default services which are injected are:
 新しいAdminサービスを作るとき、その依存性注入を設定することができます。デフォルトで注入されているのは以下の通りです。
 
 ========================      =============================================
@@ -25,7 +25,7 @@ router_builder                sonata.admin.route.path_info
 label_translator_strategy     sonata.admin.label.strategy.form_component
 =========================     =============================================
 
-Note: %manager-type% is replace by the manager type (orm, odm...)
+Note: %manager-type% is replaced by the manager type (orm, odm...)
 Note: %manager-type% は(orm, odm...)といった管理タイプに置き換えられます。
 
 You have 2 ways of defining the dependencies inside a ``services.xml``.
@@ -76,7 +76,7 @@ You have 2 ways of defining the dependencies inside a ``services.xml``.
         </service>
 
 
-If you want to modify the service who are going to be injected, add the following code to your
+If you want to modify the service which is going to be injected, add the following code to your
 application's config file:
 もしサービスを注入するように変更したければ、以下のコードをあなたのアプリケーション設定ファイルに追加してください。
 

@@ -16,24 +16,23 @@ The bundle comes with some handy form types which are available from outside the
 sonata_type_immutable_array
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ``Immutable Array`` allows to edit an array property by defining a type per key.
+The ``Immutable Array`` allows you to edit an array property by defining a type per key.
  ``Immutable Array`` はキーごとに決められたタイプだけ配列のプロパティを編集することを許します。
 
 The type has a ``keys`` parameter which contains the definition for each key. A definition is an array with 3 options :
 そのタイプはそれぞれのキーに対する定義を含んだキーパラメーターを持っています。（訳が意味不明ですね。。）
-* the key name
-* the type : a type name or the a ``FormType`` instance
-* the related type parameters : please refer to the related form documentation.
+* key name
+* type : a type name or a ``FormType`` instance
+* related type parameters : please refer to the related form documentation.
 
 * the key name
 * the type : タイプ名 もしくは ``FormType`` のインスタンス
 * the related type parameters : please refer to the related form documentation.
 
-Let's say a ``Page`` have a options property with some fixed key-pair values, each value has a type different : integer,
+Let's say a ``Page`` have options property with some fixed key-pair values, each value has a different type : integer,
 url, or string for instance.
-例えば数字やurlもしくは文字列といった、それぞれの値は異なったタイプを持っていますが、
-いくつかの固定化されたキーペア値のオプションプロパティを持ったページを言って（書いて？）みよう。
-（かなり日本語が怪しいです）
+いくつかの固定化されたキーペア値のオプションプロパティを持った ``Page`` を言って（書いて？）みよう。
+例えばintegerやurlもしくはｓｔｒｉｎｇインスタンスといった、それぞれの値は異なったタイプを持っています。
 
 .. code-block:: php
 
@@ -73,8 +72,8 @@ Now, the property can be edited by setting a type for each type
 sonata_type_boolean
 ^^^^^^^^^^^^^^^^^^^
 
-The ``boolean`` type is a specialized ``ChoiceType`` where the choices list is fixed to 'yes' or 'no'.
- ``boolean`` タイプは選択リストがyesかnoに固定された ``ChoiceType`` に特化しています。
+The ``boolean`` type is a specialized ``ChoiceType`` where the choices list is locked to 'yes' and 'no'.
+ ``boolean`` タイプは選択リストがyesとnoに固定された ``ChoiceType`` に特化しています。
 
 sonata_type_translatable_choice
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

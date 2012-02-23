@@ -90,6 +90,14 @@
                 <source>link_previous_pager</source>
                 <target>Pagina precedente</target>
             </trans-unit>
+            <trans-unit id="link_first_pager">
+                <source>link_first_pager</source>
+                <target>link_first_pager</target>
+            </trans-unit>
+            <trans-unit id="link_last_pager">
+                <source>link_last_pager</source>
+                <target>link_last_pager</target>
+            </trans-unit>
             <trans-unit id="Admin">
                 <source>Admin</source>
                 <target>Admin</target>
@@ -128,7 +136,7 @@
             </trans-unit>
             <trans-unit id="flash_create_error">
                 <source>flash_create_error</source>
-                <target>Si è verificato un errore durante l'eliminazione dell'elemento.</target>
+                <target>Si è verificato un errore durante la creazione dell'elemento.</target>
             </trans-unit>
             <trans-unit id="flash_edit_success">
                 <source>flash_edit_success</source>

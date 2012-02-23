@@ -1,11 +1,37 @@
 Security
 ========
 
-The security part is managed by a ``SecurityHandler``, the bundle comes with 2 handlers
+Users management
+----------------
+
+By default, the SonataAdminBundle does not come with any user management, however it is most likely the application
+requires such feature. The Sonata Project includes a ``SonataUserBundle`` which integrates the ``FOSUserBundle``.
+
+The ``FOSUserBundle`` adds support for a database-backed user system in Symfony2. It provides a flexible framework
+for user management that aims to handle common tasks such as user login, registration and password retrieval.
+
+The ``SonataUserBundle`` is just a thin wrapper to include the ``FOSUserBundle`` into the ``AdminBundle``. The
+``SonataUserBundle`` includes :
+
+* A default login area
+* A default ``user_block`` template which is used to display the current user and the logout link
+* 2 Admin classes : User and Group
+* A default class for User and Group.
+
+There is a little magic in the ``SonataAdminBundle`` if the bundle detects the ``SonataUserBundle`` class, then
+the default ``user_block`` template will be changed to use the one provided by the ``SonataUserBundle``.
+
+The install process is available on the dedicated `SonataUserBundle's documentation area <http://sonata-project.org/bundles/user/master/doc/reference/installation.html>`_
+
+
+Security handlers
+-----------------
+
+The security part is managed by a ``SecurityHandler``, the bundle has 2 handlers
 セキュリティ部分は ``SecurityHandler`` で管理されており、このbundleは２つのハンドラーで構成されています。
 
   - ``sonata.admin.security.handler.acl`` : ACL and ROLES to handle permissions
-  - ``sonata.admin.security.handler.noop`` : always return true, can be used with the Symfony2 firewall
+  - ``sonata.admin.security.handler.noop`` : always returns true, can be used with the Symfony2 firewall
 
   - ``sonata.admin.security.handler.acl`` : ACL と パーミッションを管理するためのROLES (ACLを理解できてないので訳が間違ってたらごめんなさい)
   - ``sonata.admin.security.handler.noop`` : いつもtureを返し、Symfony2のファイアウォールで使われます。
@@ -30,13 +56,13 @@ ACL and FriendsOfSymfony/UserBundle
 If you want an easy way to handle users, please use :
 もしユーザーを管理する簡単な方法が欲しければ、以下を使ってください。
 
- - https://github.com/FriendsOfSymfony/FOSUserBundle : handle users and group stored from RDMS or MongoDB
- - https://github.com/sonata-project/SonataUserBundle : integrate the ``FriendsOfSymfony/UserBundle`` with
+ - https://github.com/FriendsOfSymfony/FOSUserBundle : handle users and groups stored in RDMS or MongoDB
+ - https://github.com/sonata-project/SonataUserBundle : integrates the ``FriendsOfSymfony/UserBundle`` with
    the ``AdminBundle``
- - https://github.com/FriendsOfSymfony/FOSUserBundle : RDBMSやMongoDに保存されたユーザーやグループを管理する
+ - https://github.com/FriendsOfSymfony/FOSUserBundle : RDBMSやMongoDBに保存されたユーザーやグループを管理する
  - https://github.com/sonata-project/SonataUserBundle :  ``FriendsOfSymfony/UserBundle`` を ``AdminBundle`` に結合する
 
-The security integration is a work in progress and have some knows issues :
+The security integration is a work in progress and has some known issues :
 セキュリティー統合は未完成で、いくつかの解決方法が知られています。
  - ACL permissions are immutables
  - Only one PermissionMap can be defined
@@ -92,7 +118,7 @@ The following configuration for the SonataUserBundle defines:
     - the ``FriendsOfSymfony/FOSUserBundle`` as a security provider
     - the login form for authentification
     - the access control : resources with related required roles, the important part is the admin configuration
-    - the ``acl`` option enable the ACL.
+    - the ``acl`` option to enable the ACL.
 
 In ``app/config/config.yml``:
 
@@ -184,10 +210,10 @@ If you have Admin classes, you can install the related CRUD ACL rules :
        - add role: ROLE_SONATA_MEDIA_ADMIN_MEDIA_OPERATOR, ACL: ["OPERATOR"]
     ... skipped ...
 
-If you try to access to the admin class you should see the login form, just logon with the ``root`` user.
+If you try to access the admin class you should see the login form, just logon with the ``root`` user.
 
 Usage
 ~~~~~
 
-Everytime you create a new ``Admin`` class, you should create start the command ``php app/console sonata:admin:setup-acl``
+Everytime you create a new ``Admin`` class, you should create ACL by using the command ``php app/console sonata:admin:setup-acl``
 so the ACL database will be updated with the latest masks and roles informations.

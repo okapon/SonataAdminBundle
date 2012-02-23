@@ -1,10 +1,10 @@
 Architecture
 ============
 
-The architecture of the bundle is primarily inspired by the Django Admin
+The architecture of the SonataAdminBundle is primarily inspired by the Django Admin
 Project, which is truly a great project. More information can be found at the
 `Django Project Website`_.
-このバンドルのアーキテクチャーは、主にDjango Admin Project にインスパイアされており、
+このSonataAdminBundleのアーキテクチャーは、主にDjango Admin Project にインスパイアされており、
 それはとても大きなプロジェクトです。より多くの情報はDjango ProjectのWebサイトから手に入ります。
 
 The Admin Class
@@ -45,7 +45,7 @@ adminクラスは AdminInterface インターフェースを実装している�
 以下の必須依存関係が自動的に注入されることを意味しています。
 
 * ``ListBuilder``: builds the list fields
-* ``FormContractor``: constructs the form using the Symfony ``FormBuilder``
+* ``FormContractor``: builds the form using the Symfony ``FormBuilder``
 * ``DatagridBuilder``: builds the filter fields
 * ``Router``: generates the different urls
 * ``Request``
@@ -94,18 +94,18 @@ The definition contains:
 
 * ``name``: The name of the field definition;
 * ``type``: The field type;
-* ``template``: The template to use to display the field;
+* ``template``: The template used for displaying the field;
 * ``targetEntity``: The class name of the target entity for relations;
 * ``options``: Certain field types have additional options;
 
 * ``name``: フィールド定義の名前
 * ``type``: フィールドのタイプ
-* ``template``: フィールドを表示する為に使うテンプレート
+* ``template``: フィールドを表示する為に使われるテンプレート
 * ``targetEntity``: リレーションのためのターゲットエンティティのクラス名
 * ``options``: あるフィールドタイプは追加のオプションを持っている
 
 Template Configuration
------------------------
+----------------------
 
 The current implementation uses Twig as the template engine. All templates
 are located in the ``Resources/views/CRUD`` directory of the bundle. The base
@@ -113,8 +113,8 @@ template extends two layouts:
 現在の実装はTwigをテンプレートエンジンとして使っています。全てのテンプレートはbundle内の
  ``Resources/views/CRUD`` デレクトリ内に格納されています。
 
-* ``AdminBundle::standard_layout.twig``
-* ``AdminBundle::ajax_layout.twig``
+* ``AdminBundle::standard_layout.html.twig``
+* ``AdminBundle::ajax_layout.html.twig``
 
 The base templates can be configured in the Service Container. So you can easily tweak
 the layout to suit your requirements.
@@ -133,14 +133,14 @@ templates will be used:
 * ``filter_text.twig``: フィルターボックス内で使われるテンプレート
 * ``list_text.twig``: リストテーブル内で使われるテンプレート
 
-CrudController
+CRUDController
 --------------
 
-The controller contains the basic CRUD actions, it controller is related to one
+The controller contains the basic CRUD actions. It is related to one
 ``Admin`` class by mapping the controller name to the correct ``Admin``
 instance.
-このコントローラーは基本的なCRUDアクションを含んでおり、コントローラーは
-同一名のAdminインスタンスにマッピングされることにより、１つのAdminクラスに関連付けられます。
+このコントローラーは基本的なCRUDアクションを含んでおり、同一名の
+Adminインスタンスにマッピングされることにより、１つのAdminクラスに関連付けられます。
 
 Any or all actions can be overwritten to suit the project's requirements.
 いくつか、もしくは全てのアクションはプロジェクトの要求に合わせて上書きすることができます。
@@ -155,9 +155,9 @@ Obtaining an ``Admin`` Service
 ------------------------------
 
 ``Admin`` definitions are accessible through the 'sonata.admin.pool' service or
-directly from the DIC. The ``Admin`` definitions are lazy loaded from the DIC to
-reduce overhead.
-``Admin`` 定義は 'sonata.admin.pool' サービスを通したり、直接DIコンテナからアクセスすることができます。
+directly from the DIC (dependency injection container). The ``Admin`` definitions are lazy
+loaded from the DIC to reduce overhead.
+``Admin`` 定義は 'sonata.admin.pool' サービスを通したり、直接DIC（ディペンデンシーインジェクションコンテナ)からアクセスすることができます。
  ``Admin`` 定義はオーバーヘッドを減らすため遅延読み込みされます。
 
 Declaring a new Admin class
@@ -189,11 +189,16 @@ Examples:
 
         <argument />
         <argument>Sonata\NewsBundle\Entity\Post</argument>
-        <argument>SonataNewsBundle:PostAdmin</argument>
-    </service>
+        <argument>SonataAdminBundle:CRUD</argument>
+</service>
+
+If you want to define your own controller for handling CRUD operations, change the last argument
+in the service definition to::
+
+  <argument>SonataNewsBundle:PostAdmin</argument>
 
 Or if you're using a YML configuration file,
-もしyam設定ファイルを使っているなら以下
+もしyam設定ファイルを使っているなら以下の通りです。
 
 .. code-block:: yaml
 
@@ -205,12 +210,12 @@ Or if you're using a YML configuration file,
           arguments: [null, Sonata\NewsBundle\Entity\Post, SonataNewsBundle:PostAdmin]
 
 
-You can extend ``Sonata\AdminBundle\Admin\Admin`` to minimize the amount of
-code to write. This base admin uses the routing services to build routes.
+You can extend ``Sonata\AdminBundle\Admin\Admin`` class to minimize the amount of
+code to write. This base admin class uses the routing services to build routes.
 Note that you can use both the Bundle:Controller format or a `service name`_ to
 specify what controller to load.
-書くべきコードを最小化するために ``Sonata\AdminBundle\Admin\Admin`` を継承することができます。
-このベースAdminはルートを作るためルーディングサービスを使用します。Bundle:Controllerフォーマットと、
+書くべきコードを最小化するために ``Sonata\AdminBundle\Admin\Admin`` クラスを継承することができます。
+このベースAdminクラスはルートを作るためルーディングサービスを使用します。Bundle:Controllerフォーマットと、
 どのコントローラーをロードすべきか特定する service name の両方を使うことができることを気に留めておいてください。
 
 .. _`Django Project Website`: http://www.djangoproject.com/

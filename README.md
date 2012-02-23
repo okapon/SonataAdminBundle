@@ -3,14 +3,14 @@ SonataAdminBundle - The missing Symfony2 Admin Generator
 
 The online documentation of the bundle is in http://sonata-project.org/bundles/admin
 
-For contribution to the documentation you cand find it on [Resources/doc](https://github.com/sonata-project/SonataAdminBundle/tree/master/Resources/doc).
+For contribution to the documentation you can find it on [Resources/doc](https://github.com/sonata-project/SonataAdminBundle/tree/master/Resources/doc).
 
 **Warning**: documentation files are not rendering correctly in Github (reStructuredText format)
 and some content might be broken or hidden, make sure to read raw files.
 
 **Warning**: The bundle has been split into 4 bundles :
 
-* SonataAdminBundle : the current one, contains core librairies and services
+* SonataAdminBundle : the current one, contains core libraries and services
 * [SonataDoctrineORMAdminBundle](https://github.com/sonata-project/SonataDoctrineORMAdminBundle) 
 : Integrates the admin bundle into with the Doctrine ORM project
 * [SonataDoctrineMongoDBAdminBundle](https://github.com/sonata-project/SonataDoctrineMongoDBAdminBundle) 
@@ -96,7 +96,7 @@ class PostAdmin extends Admin
 Screenshots : http://www.dropbox.com/gallery/581816/2/BaseApplicationBundle/preview?h=59b2e8
 
 Of course, power users will be happy as an ``Admin`` class is very flexible as all dependencies are
-injected by the DIC.
+injected by the DIC (dependency injection container).
 
 Features
 --------
@@ -134,7 +134,7 @@ Features
     - Contextual Breadcrumb
     - persistent parameters across an Admin
     - side menu option
-    - Translated into 14 languages : CA, DE, EN, ES, FR, IT, JA, NL, PL, PT_BR, PT_PT, RU, UK an HR.
+    - Translated into 16 languages : CA, DE, EN, ES, FR, HR, IT, JA, LB, NL, PL, PT_BR, PT_PT, RU, SL and UK.
     - Built to be extended
     - Explain command line utility
 
