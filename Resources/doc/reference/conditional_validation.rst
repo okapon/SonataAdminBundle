@@ -6,6 +6,7 @@ The current validation implementation built in the Symfony2 framework is very po
 as it allows to declare validation on : class, field and getter. However these declarations
 can take a while to code for complex rules. Rules must be a set of a ``Constraint``
 and ``Validator`` instances.
+
 インラインバリデーションはモデルの検証を委譲する専門のサービスです。symfony2フレームワークに
 組み込まれている現在のバリデーション実装はとてもパワフルで、クラス、フィールド、ゲッターに
 バリデーションを宣言することができます。しかしながら、これらの宣言は複雑なルールのために
@@ -14,6 +15,7 @@ and ``Validator`` instances.
 
 The inline validation tries to provide a nice solution by introducting an ``ErrorElement``
 object. The object can be used to check assertion against the model :
+
 インラインバリデーションは ``ErrorElement`` オブジェクトを導入することにより素晴らしい解決法を
 提供することを試んでます。
 モデルに対してアサーションがあるかチェックすることで、このオブジェクトは使われます。

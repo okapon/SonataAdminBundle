@@ -66,6 +66,8 @@ A definition is an array with 3 options :
 * key name
 * type : a type name or a ``FormType`` instance
 * related type parameters : please refer to the related form documentation. * the key name
+
+* type : タイプ名、もしくは ``FormType`` インスタンス
 * the type : タイプ名 もしくは ``FormType`` のインスタンス
 * the related type parameters : please refer to the related form documentation.
 

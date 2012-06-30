@@ -41,14 +41,15 @@ handlers
   - ``sonata.admin.security.handler.acl`` : ACL and ROLES to handle permissions
   - ``sonata.admin.security.handler.noop`` : always returns true, can be used 
     with the Symfony2 firewall
-   - ``sonata.admin.security.handler.acl`` : ACL と パーミッションを管理するためのROLES (ACLを理解できてないので訳が間違ってたらごめんなさい)
+
+  - ``sonata.admin.security.handler.role`` : パーミッションをハンドルするための ROLE   - ``sonata.admin.security.handler.acl`` : ACL と パーミッションを管理するためのROLES (ACLを理解できてないので訳が間違ってたらごめんなさい)
   - ``sonata.admin.security.handler.noop`` : いつもtureを返し、Symfony2のファイアウォールで使われます。 
 The default value is ``sonata.admin.security.handler.noop``, if you want to 
 change the default value you can set the ``security_handler`` to 
 ``sonata.admin.security.handler.acl`` or ``sonata.admin.security.handler.role``.
 
 デフォルト値は ``sonata.admin.security.handler.noop`` で、デフォルト値を変更したければ
- ``security_handler`` に ``sonata.admin.security.handler.acl`` を設定できます
+ ``security_handler`` に ``sonata.admin.security.handler.acl`` や  ``sonata.admin.security.handler.role`` を設定できます
 
 To quickly secure an admin the role security can be used. It allows to specify 
 the actions a user can with the admin. The ACL security system is more advanced 
@@ -121,6 +122,8 @@ The security integration is a work in progress and has some known issues :
  - ACL permissions are immutables
  - A listener must be implemented that creates the object Access Control List 
     with the required rules if objects are created outside the Admin
+ - ACL のパーミッションは不変である
+ - リスナーは、もしAdmin の外で生成した場合、Access Control List オブジェクトを生成する （インターフェースを）実装しなければならない
 
 Configuration
 ~~~~~~~~~~~~~
