@@ -6,6 +6,8 @@ Help Messages
 
 Help messages are short notes that are rendered together with form fields. They are generally used to show additional information so the user can complete the form element faster and more accurately.
 
+ヘルプメッセージはフォームフィールドと一緒に表示される短い注意書きです。ヘルプメッセージはユーザーがフォーム要素を早く正確に埋められるように追加の情報を見せるために一般的に使われます。
+
 Example
 -------
 

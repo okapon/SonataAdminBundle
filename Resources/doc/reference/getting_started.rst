@@ -1,22 +1,29 @@
-Getting started with SonataAdminBundle
-======================================
+Getting started with SonataAdminBundle (SonataAdminBundleの始め方)
+==================================================================
 
 After installation of SonataAdminBundle you need to configure it for your models.
 Here is a quick checklist of what is needed to quickly setup SonataAdminBundle
 and create your first admin interface for the models of your application:
 
-* Step 1: Define SonataAdminBundle routes
-* Step 2: Setup the persistence service (ORM, ODM, ...)
-* Step 3: Create admin class
-* Step 4: Create admin service
-* Step 5: Configuration
-* Step 6: Security
+SonataAdminBundleのインストール後、自分のモデル向けに設定する必要があります。
+ここに、SonataAdminBundleをすぐ設定し、自分のアプリケーションのモデル向けの最初の管理インターフェースを作成するために必要な簡単なチェックリストがあります。
 
-Step 1: Define SonataAdminBundle routes
----------------------------------------
+* Step 1: Define SonataAdminBundle routes （SonataAdminBundleのroutesを定義する）
+* Step 2: Setup the persistence service (ORM, ODM, ...) （永続化サービスを設定）
+* Step 3: Create admin class （adminクラスを作成）
+* Step 4: Create admin service （adminサービスを作成）
+* Step 5: Configuration （設定）
+* Step 6: Security （セキュリティ）
+
+Step 1: Define SonataAdminBundle routes （SonataAdminBundleのroutesを定義する）
+-------------------------------------------------------------------------------
+
 
 SonataAdminBundle contains several routes. Import them by adding the following
 code to your application's routing file:
+
+SonataAdminBundle は様々なルートを持っています。アプリケーションのルートファイルに以下の
+コードを追加することによりインポートできます。
 
 .. code-block:: yaml
 
@@ -35,13 +42,19 @@ code to your application's routing file:
     If you're using XML or PHP to specify your application's configuration,
     the above routing configuration must be placed in routing.xml or
     routing.php according to your format (i.e. XML or PHP).
+    もし、アプリケーション設定をXMLやPHPを使って記述しているのであれば、上記の
+    ルート設定はあなたのフォーマット（例えばXMLやPHP）に従ってrouting.xmlや
+    routing.php に置き換えなければなりません。
 
 At this point you can already access the admin dashboard by visiting the url:
 ``http://yoursite.local/admin/dashboard``.
 
+この段階で、以下のURLにアクセスすれば管理ダッシュボードにアクセスすることができます。
+``http://yoursite.local/admin/dashboard``.
 
-Step 2: Setup the persistence service (ORM, ODM, ...)
------------------------------------------------------
+
+Step 2: Setup the persistence service (ORM, ODM, ...)（永続化サービスを設定）
+-----------------------------------------------------------------------------
 
 SonataAdminBundle does not impose persistence service (service for handling and
 controlling your models), however most likely your application will use some
@@ -59,8 +72,8 @@ ORM that will be integrated in SonataAdminBundle.
 Install the persistance service you need and configure it according to its
 related documentation.
 
-Step 3: Create Admin class
---------------------------
+Step 3: Create Admin class （adminクラスを作成）
+------------------------------------------------
 
 Admin class represents mapping of your model and administration sections (forms,
 list, show). The easiest way to create an admin class for your model is to extend
@@ -118,8 +131,8 @@ Here is a simple example from the SonataNewsBundle:
    }
 
 
-Step 4: Create admin service
-----------------------------
+Step 4: Create admin service （adminサービスを作成）
+----------------------------------------------------
 
 To notify your administration of your new admin class you need to create an
 admin service and link it into the framework by setting the sonata.admin tag.
@@ -152,8 +165,8 @@ Note: If you don't already have a configuration file for the purpose, you can re
         - { resource: services.xml }
 
 
-Step 5: Configuration
----------------------
+Step 5: Configuration （設定）
+------------------------------
 
 At this point you have basic administration for your model. If you wish to
 quickly customize your administration you can create some configuration options
@@ -209,8 +222,8 @@ However you can define only admin groups you want to show in the dashboard by:
 More information can be found in the configuration chapter of this documentation.
 
 
-Step 6: Security
-----------------
+Step 6: Security （セキュリティ）
+---------------------------------
 
 The last important step is security. By default, the SonataAdminBundle does not
 come with any user management for ultimate flexibility, however it is most

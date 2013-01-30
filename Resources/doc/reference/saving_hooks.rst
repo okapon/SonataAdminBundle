@@ -3,6 +3,7 @@ Saving hooks
 
 When the model is persited upon on the stated object two Admin methods are 
 always called. You can extend this method to add custom business logic.
+
 モデルが永続化される時にオブジェクトはいつも決められた２つのAdminメソッドを呼びます。
 あなたはビジネスロジックに合わせてこのメソッドを拡張することができます。
 
@@ -17,12 +18,14 @@ Example used with the FOS/UserBundle
 The ``FOSUserBundle`` provides authentication features for your Symfony2 Project,
 and is compatible with Doctrine ORM & ODM. See 
 https://github.com/FriendsOfSymfony/UserBundle for more information.
- ``FOSUserBundle`` symfony2プロジェクトに認証機能を提供します。DoctrineORM と ODM に
+
+ ``FOSUserBundle`` は、symfony2プロジェクトに認証機能を提供します。DoctrineORM と ODM に
 対応しています。より多くの情報は https://github.com/FriendsOfSymfony/UserBundle を見てください。
 
 The user management system requires to perform specific call when the user 
 password or username are updated. This is how the Admin bundle can be used to 
 solve the issue by using the ``prePersist`` saving hook.
+
 このユーザーマネージメントシステムはユーザー名やパスワードが変更された時に固有の呼び出しを行うことを
 要求します。これ(以下)は ``prePersist`` セービングフックを利用した、Admin bundleによるこの問題解決方法です。
 
@@ -79,6 +82,7 @@ solve the issue by using the ``prePersist`` saving hook.
 
 
 The service declaration where the ``UserManager`` is injected into the Admin class.
+
  ``UserManager`` のサービス宣言はAdminクラス内に注入します
 
 .. code-block:: xml

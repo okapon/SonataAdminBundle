@@ -1,14 +1,18 @@
-Dashboard
-=========
+Dashboard (ダッシュボード)
+==========================
 
 The dashboard is the main landing page. By default the dashboard lists the different admin areas available.
 The admin list is a block defined by the ``sonata.admin.block.admin_list`` service. More block can be added, just
 follow the instruction in the `BlockBundle documentation <http://sonata-project.org/bundles/block/master/doc/index.html>`_.
 
+ダッシュボードはメインのランディングページです。デフォルトのダッシュボードは異なるAdminエリアがリストアップされます。
+管理リストは ``sonata.admin.block.admin_list`` サービスで定義されたブロックです。
+`BlockBundle documentation <http://sonata-project.org/bundles/block/master/doc/index.html>`_. の指示に従うだけで
+より多くのブロックを追加することがでます。
+
 If you want to customize the dashboard, add the following code to your
 application's config file:
-ダッシュボードはメインのランディングページです。デフォルトのダッシュボードは異なるAdminエリアが
-リストアップされます。
+
 もしダッシュボードをカスタマイズしたいなら、以下のコードをアプリケーション設定ファイルに追加してくだいさい。
 
 .. code-block:: yaml
@@ -24,11 +28,11 @@ application's config file:
                 ... your config ...
 
 
-Examples
---------
+Examples (例)
+-------------
 
-Set the label group & add all the default items
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set the label group & add all the default items (labelグループの設定と全てのitemsを追加する)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -44,8 +48,8 @@ Set the label group & add all the default items
                     label: Page
                     items: ~
 
-Set items group
-^^^^^^^^^^^^^^^
+Set items group (アイテムグループの設定)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -61,8 +65,8 @@ Set items group
                     items:
                         - sonata.page.admin.page
 
-Add a group with all the default items
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add a group with all the default items (全てのデフォルトアイテムを含んだグループを追加)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -76,8 +80,8 @@ Add a group with all the default items
             groups:
                 sonata_page: ~
 
-Add some items to a group
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Add some items to a group (グループにいくつかアイテムを追加)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
@@ -99,8 +103,8 @@ Add some items to a group
            :alt: Dashboard
            :width: 200
 
-Display two blocks with different dashboard groups
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Display two blocks with different dashboard groups (異なるダッシュボードグループに２つのブロックを表示)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
 
